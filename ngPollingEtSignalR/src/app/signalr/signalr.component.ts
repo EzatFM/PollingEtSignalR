@@ -15,15 +15,19 @@ export class SignalrComponent implements OnInit {
   tasks: UselessTask[] = [];
   taskname: string = "";
 
+  urlApi = "https://localhost:7289/task";
+
   ngOnInit(): void {
     this.connecttohub()
   }
 
   connecttohub() {
     // TODO On doit commencer par créer la connexion vers le Hub
-
+    this.hubConnection = new signalR.HubConnectionBuilder()
+      .withUrl(this.urlApi)
+      .build();
     // TODO On peut commencer à écouter pour les évènements qui vont déclencher des callbacks
-
+    
     // TODO On doit ensuite se connecter
   }
 
